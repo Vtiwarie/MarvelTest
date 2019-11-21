@@ -11,6 +11,4 @@ class MovieRepository @Inject constructor(
 ) :
     BaseRepository() {
 
-    private val apiKey = MarvelTestApplication.instance.resources.getString(R.string.api_key)
-
 }

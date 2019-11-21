@@ -5,6 +5,10 @@ object Constants {
         const val apiKey = "api_key"
     }
 
+    object DB {
+        const val databaseName = "marvel_database"
+    }
+
     object Parameter {
         const val id = "id"
     }
