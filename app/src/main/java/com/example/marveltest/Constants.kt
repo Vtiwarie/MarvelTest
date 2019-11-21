@@ -1,4 +1,4 @@
-package com.example.irokutest
+package com.example.marveltest
 
 object Constants {
     object Api {

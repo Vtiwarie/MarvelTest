@@ -1,4 +1,4 @@
-package com.example.irokutest.util
+package com.example.marveltest.util
 
 import android.view.LayoutInflater
 import android.view.View

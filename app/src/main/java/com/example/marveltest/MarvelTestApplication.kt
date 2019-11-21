@@ -3,6 +3,7 @@ package com.example.marveltest
 import android.app.Application
 import com.example.marveltest.inject.AppComponent
 import com.example.marveltest.inject.AppModule
+import com.example.marveltest.inject.DaggerAppComponent
 
 class MarvelTestApplication : Application() {
     lateinit var appComponent: AppComponent
@@ -16,7 +17,6 @@ class MarvelTestApplication : Application() {
             .build()
         appComponent.inject(this)
 
-        Realm.init(this)
     }
 
     companion object {

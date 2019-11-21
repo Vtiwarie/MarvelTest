@@ -1,15 +1,14 @@
-package com.example.irokutest.inject
+package com.example.marveltest.inject
 
 import android.content.Context
-import com.example.irokutest.R
-import com.example.irokutest.api.NetworkApi
+import com.example.marveltest.R
+import com.example.marveltest.api.NetworkApi
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -53,7 +52,6 @@ class NetworkModule {
         val retrofit = Retrofit.Builder()
             .baseUrl(context.getString(R.string.base_url))
             .addConverterFactory(gsonConverterFactory)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(httpClient)
             .build()
         return retrofit.create(NetworkApi::class.java)

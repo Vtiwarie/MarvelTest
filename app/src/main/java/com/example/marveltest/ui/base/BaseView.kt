@@ -1,4 +1,4 @@
-package com.example.irokutest.ui.base
+package com.example.marveltest.ui.base
 
 interface BaseView {
     fun showError(t: Throwable) {}

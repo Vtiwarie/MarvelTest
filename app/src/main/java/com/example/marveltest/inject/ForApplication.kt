@@ -1,4 +1,4 @@
-package com.example.irokutest.inject
+package com.example.marveltest.inject
 
 import javax.inject.Qualifier
 

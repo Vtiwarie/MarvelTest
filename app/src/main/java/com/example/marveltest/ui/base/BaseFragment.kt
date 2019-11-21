@@ -1,4 +1,4 @@
-package com.example.irokutest.ui.base
+package com.example.marveltest.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,11 +1,20 @@
-package com.example.irokutest.ui.base
+package com.example.marveltest.ui.base
 
 import androidx.recyclerview.widget.*
 
 
-abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
+abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>(), Callback<T> {
 
-    protected abstract fun createDiffCallback(): DiffUtil.ItemCallback<T>
+    //    protected abstract fun createDiffCallback():
+    val diffCallback: DiffUtil.ItemCallback<T> = object : DiffUtil.ItemCallback<T>() {
+        override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
+            return this.areItemsTheSame(oldItem, newItem)
+        }
+
+        override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
+            return this.areContentsTheSame(oldItem, newItem)
+        }
+    }
 
     private val helper: AsyncListDiffer<T>
 
@@ -27,7 +36,7 @@ abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapt
             override fun onMoved(fromPosition: Int, toPosition: Int) {
                 this@BaseAdapter.onMoved(fromPosition, toPosition)
             }
-        }, AsyncDifferConfig.Builder(createDiffCallback()).build())
+        }, AsyncDifferConfig.Builder(diffCallback).build())
     }
 
     protected open fun onInserted(position: Int, count: Int) {
@@ -80,3 +89,9 @@ abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapt
         return helper.currentList.size
     }
 }
+
+interface Callback<T> {
+    fun areItemsTheSame(oldItem: T, newItem: T): Boolean
+    fun areContentsTheSame(oldItem: T, newItem: T): Boolean
+}
+
