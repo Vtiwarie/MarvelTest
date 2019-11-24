@@ -1,8 +1,22 @@
 package com.example.marveltest.data.entity
 
+import androidx.annotation.NonNull
+import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.marveltest.Constants
 
-@Entity
+@Entity(tableName = Constants.DB.comicsTableName)
 data class Comic(
-    val name: String
+    @PrimaryKey
+    @NonNull
+    val id: String,
+    val title: String?,
+    val description: String?,
+
+    @Embedded
+    val thumbnail: Image?,
+
+    @Embedded
+    val images: ArrayList<Image>?
 )

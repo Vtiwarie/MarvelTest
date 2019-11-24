@@ -2,11 +2,14 @@ package com.example.marveltest
 
 object Constants {
     object Api {
-        const val apiKey = "api_key"
+        const val apiKey = "apikey"
+        const val apiHash = "hash"
+        const val apiTs = "ts"
     }
 
     object DB {
-        const val databaseName = "marvel_database"
+        const val databaseName = "marvel.db"
+        const val comicsTableName = "comics"
     }
 
     object Parameter {

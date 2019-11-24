@@ -2,6 +2,7 @@ package com.example.marveltest.inject
 
 import android.content.Context
 import com.example.marveltest.R
+import com.example.marveltest.api.AuthInterceptor
 import com.example.marveltest.api.NetworkApi
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -15,6 +16,12 @@ import javax.inject.Singleton
 
 @Module
 class NetworkModule {
+
+    @Provides
+    fun provideApiKeyInterceptor(@ForApplication context: Context): AuthInterceptor {
+        return AuthInterceptor(context)
+    }
+
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
@@ -23,10 +30,12 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: AuthInterceptor
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(authInterceptor)
             .connectTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
