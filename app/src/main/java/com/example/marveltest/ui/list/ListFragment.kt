@@ -22,11 +22,11 @@ class ListFragment : BaseFragment<ListPresenter, ListView>(), ListView {
     override fun setUpViews() {
         adapter.clickListener = {
         }
-        movie_recycler.adapter = adapter
+        comic_recycler.adapter = adapter
     }
 
     override fun showComics(comics: List<Comic>) {
-
+        adapter.submitList(comics)
     }
 
     companion object {

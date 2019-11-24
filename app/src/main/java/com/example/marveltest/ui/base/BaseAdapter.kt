@@ -8,11 +8,11 @@ abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapt
     //    protected abstract fun createDiffCallback():
     val diffCallback: DiffUtil.ItemCallback<T> = object : DiffUtil.ItemCallback<T>() {
         override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
-            return this.areItemsTheSame(oldItem, newItem)
+            return this@BaseAdapter.areItemsTheSame(oldItem, newItem)
         }
 
         override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
-            return this.areContentsTheSame(oldItem, newItem)
+            return this@BaseAdapter.areContentsTheSame(oldItem, newItem)
         }
     }
 
