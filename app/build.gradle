@@ -32,6 +32,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha01'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
 
     //networking
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'

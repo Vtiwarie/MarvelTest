@@ -12,7 +12,7 @@ import com.example.marveltest.util.inflateView
 class ComicsViewHolder(parent: ViewGroup) :
     BaseViewHolder(inflateView(R.layout.item_comic, parent, false)) {
 
-    fun bind(comic: Comic, listener: ((movie: Comic) -> Unit)? = null) {
+    fun bind(comic: Comic, listener: ((comic: Comic) -> Unit)? = null) {
 
         val image = itemView.findViewById<ImageView>(R.id.image)
         val title = itemView.findViewById<TextView>(R.id.title)

@@ -35,10 +35,13 @@ class ComicsRepository @Inject constructor(
             })
     }
 
-    fun subscribeToDatabase(): Flow<List<Comic>> {
+    fun subscribeToComicsList(): Flow<List<Comic>> {
         return comicsDao.getAll().produceIn(coroutineIO).consumeAsFlow()
     }
 
+    fun subscribeToComic(id: String): Flow<Comic> {
+        return comicsDao.get(id).produceIn(coroutineIO).consumeAsFlow()
+    }
 
     companion object {
         const val TAG = "ComicsRepository"

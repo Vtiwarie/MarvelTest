@@ -4,9 +4,10 @@ package com.example.marveltest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.marveltest.ui.base.BaseFragment
+import com.example.marveltest.ui.base.BaseNavigator
 import com.example.marveltest.ui.list.ListFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BaseNavigator {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         navigateToFragment(ListFragment.newInstance(), false)
     }
 
-    fun navigateToFragment(fragment: BaseFragment<*, *>, addToStack: Boolean = true) {
+    override fun navigateToFragment(fragment: BaseFragment<*, *>, addToStack: Boolean) {
         supportFragmentManager.beginTransaction()
             .replace(CONTAINER, fragment).apply {
                 if (addToStack) {

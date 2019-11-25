@@ -4,11 +4,13 @@ import android.content.Context
 import com.example.marveltest.R
 import com.example.marveltest.api.AuthInterceptor
 import com.example.marveltest.api.NetworkApi
+import com.example.marveltest.api.converter.ZonedDateTimeConverter
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.threeten.bp.ZonedDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -47,6 +49,7 @@ class NetworkModule {
     fun provideGsonConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create(
             GsonBuilder()
+                .registerTypeAdapter(ZonedDateTime::class.java, ZonedDateTimeConverter())
                 .create()
         )
     }

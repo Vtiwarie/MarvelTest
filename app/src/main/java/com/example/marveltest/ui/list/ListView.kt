@@ -6,5 +6,5 @@ import com.example.marveltest.ui.base.BaseView
 
 interface ListView : BaseView {
     @MainThread
-    fun showComics(comics: List<Comic>)
+    fun showComicsList(comics: List<Comic>)
 }

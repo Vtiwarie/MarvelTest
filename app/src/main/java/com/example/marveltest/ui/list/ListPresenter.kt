@@ -18,14 +18,14 @@ class ListPresenter @Inject constructor(private val comicsRepository: ComicsRepo
     override fun start() {
         super.start()
 
-        subscribeToDatabase()
+        subscribeToComicsList()
         fetchAndSaveComics()
     }
 
-    private fun subscribeToDatabase() {
-        comicsRepository.subscribeToDatabase()
+    private fun subscribeToComicsList() {
+        comicsRepository.subscribeToComicsList()
             .onEach {
-                view?.showComics(it)
+                view?.showComicsList(it)
             }
             .onCompletion { throwable ->
                 throwable?.let { view?.showError(it) }

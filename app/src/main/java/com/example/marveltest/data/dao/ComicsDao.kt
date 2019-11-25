@@ -18,4 +18,7 @@ abstract class ComicsDao {
 
     @Query("SELECT * FROM ${Constants.DB.comicsTableName}")
     abstract fun getAll(): Flow<List<Comic>>
+
+    @Query("SELECT * FROM ${Constants.DB.comicsTableName} WHERE id = :id")
+    abstract fun get(id: String): Flow<Comic>
 }
