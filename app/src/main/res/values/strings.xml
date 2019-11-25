@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MarvelComicsTest (Vishaan Tiwarie)</string>
+    <string name="app_name">MarvelTest (Vishaan Tiwarie)</string>
 
     <string name="base_url">https://gateway.marvel.com/</string>
     <string name="private_key">18df06e2d73e9fc51f80600ffa988c6265855d4e</string>
@@ -11,4 +11,5 @@
     <string name="pages">Pages</string>
     <string name="released">Released</string>
     <string name="free">Free</string>
+    <string name="no_authors">(Authors Not Listed)</string>
 </resources>

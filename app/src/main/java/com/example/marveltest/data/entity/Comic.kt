@@ -28,6 +28,7 @@ data class Comic(
     var prices: ArrayList<ComicPrice>? = null
 
     fun getPrice() = prices?.firstOrNull()?.price
+
     fun getAuthors() =
         creators?.items?.joinToString(separator = ", ", transform = { it.name ?: "" })
 }

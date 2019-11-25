@@ -43,14 +43,19 @@ class DetailFragment : BaseFragment<DetailPresenter, DetailView>(), DetailView {
         val byStr = context.getString(R.string.by)
         val pagesStr = context.getString(R.string.pages)
         val releasedStr = context.getString(R.string.released)
+        val noAuthorsStr = context.getString(R.string.no_authors)
 
         //only display values IF they are not null
         comic.title?.let { title.text = it }
         comic.description?.let { summary.text = it }
-        comic.getAuthors()?.takeIf { it.isNotEmpty() }?.let { authors.text = "${byStr}: $it" }
         comic.getPrice()?.let { price.text = it.getAsPrice(context) }
         comic.pageCount?.let { pages.text = "$pagesStr: $it" }
         comic.modified?.let { date.text = "$releasedStr: ${it.getFormattedDate()}" }
+        authors.text = if (comic.getAuthors()?.isNotEmpty() == true) {
+            "${byStr}: ${comic.getAuthors()}"
+        } else {
+            noAuthorsStr
+        }
 
         //show the promos and their respective fields ONLY if we actually have promo images to display
         if (comic.images?.isNotEmpty() == true) {
