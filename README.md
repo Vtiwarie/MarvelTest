@@ -12,6 +12,7 @@ The comics details displays the title, author(s), price, page count,
 release date, summary, and promo images.
 
 ----App Technologies----
+
 Kotlin
 Coroutines
 Retrofit
