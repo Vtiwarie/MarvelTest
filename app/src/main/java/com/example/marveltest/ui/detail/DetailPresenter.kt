@@ -21,7 +21,7 @@ class DetailPresenter @Inject constructor(private val comicsRepository: ComicsRe
         subscribeToComic()
     }
 
-    private fun subscribeToComic() {
+    fun subscribeToComic() {
         comicsRepository.subscribeToComic(comicId)
             .onEach {
                 view?.showComicDetails(it)

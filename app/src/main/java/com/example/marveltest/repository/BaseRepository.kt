@@ -22,7 +22,7 @@ abstract class BaseRepository {
     //main thread dispatcher
     val coroutineMain = CoroutineScope(Dispatchers.Main)
 
-    protected open fun <T> makeNetworkCall(
+    open fun <T> makeNetworkCall(
         call: suspend () -> Response<T>,
         onSuccess: (T?) -> Unit,
         onError: ((Throwable) -> Unit)? = null
@@ -37,7 +37,7 @@ abstract class BaseRepository {
         }
     }
 
-    protected open fun saveToDatabase(
+    open fun saveToDatabase(
         onSuccess: (() -> Unit)? = null,
         onError: ((Throwable) -> Unit)? = null,
         save: suspend () -> Unit

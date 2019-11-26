@@ -22,7 +22,7 @@ class ListPresenter @Inject constructor(private val comicsRepository: ComicsRepo
         fetchAndSaveComics()
     }
 
-    private fun subscribeToComicsList() {
+    fun subscribeToComicsList() {
         comicsRepository.subscribeToComicsList()
             .onEach {
                 view?.showComicsList(it)
@@ -33,7 +33,7 @@ class ListPresenter @Inject constructor(private val comicsRepository: ComicsRepo
             .launchIn(comicsRepository.coroutineMain)
     }
 
-    private fun fetchAndSaveComics() {
+    fun fetchAndSaveComics() {
         comicsRepository.fetchAndSaveComics()
     }
 

@@ -13,7 +13,7 @@ import javax.inject.Inject
  * Class used for storing and retrieving Comics data
  * from either the network or local cache database
  */
-class ComicsRepository @Inject constructor(
+open class ComicsRepository @Inject constructor(
     val api: NetworkApi,
     val comicsDao: ComicsDao
 ) :
