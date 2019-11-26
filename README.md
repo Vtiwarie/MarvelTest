@@ -1,10 +1,10 @@
 Marvel Test Application by Vishaan Tiwarie
 
 ![Image of Master Screen]
-(marveltest1.png)
+(/marveltest1.png)
 
 ![Image of Detail Screen]
-(marveltest2.png)
+(/marveltest2.png)
 
 This app was written using the MVP architectural pattern, with
 a Master screen (list of comics) and a detail screen to display
