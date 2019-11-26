@@ -3,6 +3,7 @@ package com.example.marveltest.api
 import android.content.Context
 import com.example.marveltest.Constants
 import com.example.marveltest.R
+import com.example.marveltest.util.getMd5
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.util.*
@@ -30,6 +31,6 @@ class AuthInterceptor @Inject constructor(private val context: Context) : Interc
         val privateKey = context.getString(R.string.private_key)
         val apiKey = context.getString(R.string.apikey)
 
-        return com.example.marveltest.util.getMd5(ts + privateKey + apiKey)
+        return getMd5(ts + privateKey + apiKey)
     }
 }

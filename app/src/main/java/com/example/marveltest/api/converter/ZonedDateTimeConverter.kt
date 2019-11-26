@@ -8,6 +8,11 @@ import java.lang.reflect.Type
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * @class ZonedDateTimeConverter
+ *
+ * Used to parse the dates that come from the Marvel Comics API
+ */
 class ZonedDateTimeConverter : JsonDeserializer<ZonedDateTime> {
     override fun deserialize(
         json: JsonElement?,
