@@ -1,6 +1,9 @@
 Marvel Test Application by Vishaan Tiwarie
 
+![Image of Master Screen]
 (https://github.com/Vtiwarie/MarvelTest/blob/master/marveltest1.png)
+
+![Image of Detail Screen]
 (https://github.com/Vtiwarie/MarvelTest/blob/master/marveltest2.png)
 
 This app was written using the MVP architectural pattern, with
