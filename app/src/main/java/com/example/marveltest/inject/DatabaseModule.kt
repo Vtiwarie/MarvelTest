@@ -14,7 +14,9 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideDatabase(@ForApplication context: Context): MarvelDatabase =
-        Room.databaseBuilder(context.applicationContext, MarvelDatabase::class.java, Constants.DB.databaseName).build()
+        Room.databaseBuilder(context.applicationContext, MarvelDatabase::class.java, Constants.DB.databaseName)
+            .fallbackToDestructiveMigration()
+            .build()
 
     @Provides
     fun provideComicsDao(database: MarvelDatabase) = database.comicsDao()

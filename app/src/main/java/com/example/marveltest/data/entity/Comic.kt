@@ -13,16 +13,16 @@ data class Comic(
     @PrimaryKey
     @NonNull
     val id: String,
-    val title: String?,
-    val description: String?,
-    val pageCount: Int?,
-    val modified: ZonedDateTime?,
+    val title: String? = null,
+    val description: String? = null,
+    val pageCount: Int? = null,
+    val modified: ZonedDateTime? = null,
 
     @Embedded
-    val thumbnail: Image?,
+    val thumbnail: Image? = null,
 
     @Embedded
-    val creators: CreatorList?
+    val creators: CreatorList? = null
 ) {
     var images: ArrayList<Image>? = null
     var prices: ArrayList<ComicPrice>? = null

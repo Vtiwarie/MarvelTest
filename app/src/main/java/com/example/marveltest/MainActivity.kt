@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity(), BaseNavigator {
         navigateToFragment(ListFragment.newInstance(), false)
     }
 
+    //very basic navigation for simple app
     override fun navigateToFragment(fragment: BaseFragment<*, *>, addToStack: Boolean) {
         supportFragmentManager.beginTransaction()
             .replace(CONTAINER, fragment).apply {

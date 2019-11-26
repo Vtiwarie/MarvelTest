@@ -12,7 +12,7 @@ import javax.inject.Inject
  *
  * ListFragment Presenter
  */
-class ListPresenter @Inject constructor(private val comicsRepository: ComicsRepository) :
+class ListPresenter @Inject constructor(val comicsRepository: ComicsRepository) :
     BasePresenter<ListView>() {
 
     override fun start() {

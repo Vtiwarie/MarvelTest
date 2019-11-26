@@ -22,28 +22,24 @@ abstract class BaseRepository {
     //main thread dispatcher
     val coroutineMain = CoroutineScope(Dispatchers.Main)
 
-    open fun <T> makeNetworkCall(
+    open suspend fun <T> makeNetworkCall(
         call: suspend () -> Response<T>,
         onSuccess: (T?) -> Unit,
         onError: ((Throwable) -> Unit)? = null
     ) {
-        coroutineNetwork.launch {
-            val response = call()
-            if (response.isSuccessful) {
-                onSuccess(response.body())
-            } else {
-                onError?.invoke(throw Exception(response.errorBody()?.string()))
-            }
+        val response = call()
+        if (response.isSuccessful) {
+            onSuccess(response.body())
+        } else {
+            onError?.invoke(throw Exception(response.errorBody()?.string()))
         }
     }
 
     open fun saveToDatabase(
-        onSuccess: (() -> Unit)? = null,
-        onError: ((Throwable) -> Unit)? = null,
-        save: suspend () -> Unit
+        saveAction: suspend () -> Unit
     ) {
         coroutineIO.launch {
-            save()
+            saveAction()
         }
     }
 }

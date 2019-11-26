@@ -14,7 +14,7 @@ import javax.inject.Inject
 class AuthInterceptor @Inject constructor(private val context: Context) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
-        val apiKey = context.resources.getString(R.string.apikey)
+        val apiKey = context.getString(R.string.apikey)
         val ts = Date().time.toString()
 
         val newUrl = request.url().newBuilder()
